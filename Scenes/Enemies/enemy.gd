@@ -17,8 +17,9 @@ signal attack(dmg)
 func _ready():
 	$AttackTimer.wait_time = attack_time
 
-func start(_position=position,_direction = Vector2.UP, _damage=10) -> void:
+func start(_position=position,_destiny = Vector2.UP, _damage=10) -> void:
 	position = _position
+	var _direction = _destiny - _position
 	move_direction = _direction.normalized()
 	damage = _damage
 
@@ -36,12 +37,14 @@ func _get_damage() -> int:
 	return damage
 
 func _on_HurtBox_area_entered(bullet) -> void:
+	
 	life -= bullet._get_damage()
+	print(life)
 	if life <= 0:
 		queue_free()
 
 func _on_AttackBox_area_entered(tower):
-	print("OP")
+	
 	towers_in_range += 1
 	tower_in_attack_area = true
 	connect("attack", tower, "recieve_damage")

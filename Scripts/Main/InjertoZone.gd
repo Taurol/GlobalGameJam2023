@@ -1,5 +1,6 @@
 extends Area2D
 
+export(Vector2) var shooting_direction= Vector2.UP
 var injerto_scene: PackedScene = preload("res://Scenes/Main/Injerto.tscn")
 
 var is_mouse_inside: bool = false
@@ -29,12 +30,13 @@ func _on_InjertoZone_input_event(viewport, event, shape_idx):
 		return
 	
 	var injerto = injerto_scene.instance()
+	injerto.shooting_direction = shooting_direction
 	injerto.connect("died", self, "injerto_died")
 	add_child(injerto)
 	has_child = true
 	$Sprite.self_modulate = Color.gray
 
+
 func injerto_died() -> void:
 	has_child = false
 	$Sprite.self_modulate = Color.white
-

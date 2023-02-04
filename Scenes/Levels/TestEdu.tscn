@@ -25,8 +25,3 @@ dest_x = -1
 [node name="Spawner4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 114, 85 )
 wait_time = 3
-
-[connection signal="spawn_enemy" from="Spawner" to="." method="_on_Spawner_spawn_enemy"]
-[connection signal="spawn_enemy" from="Spawner2" to="." method="_on_Spawner_spawn_enemy"]
-[connection signal="spawn_enemy" from="Spawner3" to="." method="_on_Spawner_spawn_enemy"]
-[connection signal="spawn_enemy" from="Spawner4" to="." method="_on_Spawner_spawn_enemy"]

@@ -8,7 +8,7 @@ export (int) var dest_y = 1 # en segundos
 export (int) var dest_x = 1 # en segundos
 #export (Scene) var target_dst
 #signals
-signal spawn_enemy
+signal enemy_spawned
 
 func _ready():
 	$Timer.wait_time = wait_time
@@ -24,5 +24,5 @@ func spawn(enemy_pos, destination, enemy_damage) -> void:
 
 func _on_Timer_timeout():
 	emit_signal("enemy_spawned", last_enemy)
-	spawn(global_position, Vector2(1920/2, 1080/2), enemy_damage)
+	spawn(global_position, Vector2(dest_x, dest_y), enemy_damage)
 
