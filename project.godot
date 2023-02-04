@@ -42,6 +42,7 @@ common/drop_mouse_on_gui_input_disabled=true
 2d_physics/layer_2="Bullets"
 2d_physics/layer_3="Enemy_Hurt"
 2d_physics/layer_4="Enemy_attack"
+2d_physics/layer_5="Plant_Zone"
 
 [physics]
 
