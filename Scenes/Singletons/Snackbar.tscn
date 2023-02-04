@@ -4,7 +4,6 @@
 [ext_resource path="res://Assets/Fonts/Inter/Inter-Black.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/Singletons/Snackbar.gd" type="Script" id=3]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 32
 use_mipmaps = true
@@ -17,12 +16,12 @@ default_font = SubResource( 1 )
 [node name="Snackbar" type="CenterContainer"]
 margin_right = 1080.0
 margin_bottom = 130.0
-rect_min_size = Vector2( 1080, 0 )
+rect_min_size = Vector2( 1920, 0 )
 script = ExtResource( 3 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = 140.0
-margin_right = 940.0
+margin_left = 560.0
+margin_right = 1360.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 800, 130 )
 texture = ExtResource( 1 )
