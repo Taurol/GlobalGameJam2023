@@ -32,6 +32,17 @@ window/stretch/aspect="keep"
 
 common/drop_mouse_on_gui_input_disabled=true
 
+[layer_names]
+
+2d_render/layer_1="Towers"
+2d_render/layer_2="Enemies_Hurt"
+2d_render/layer_3="Enemy_attack"
+2d_render/layer_4="Bullet"
+2d_physics/layer_1="Tower"
+2d_physics/layer_2="Bullets"
+2d_physics/layer_3="Enemy_Hurt"
+2d_physics/layer_4="Enemy_attack"
+
 [physics]
 
 common/enable_pause_aware_picking=true
