@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Levels/TestEdu.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Enemies/Spawner.tscn" type="PackedScene" id=3]
+
+[node name="TestEdu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Spawner" parent="." instance=ExtResource( 3 )]
+position = Vector2( 62, 1014 )
+wait_time = 1
+dest_y = -1
+
+[node name="Spawner2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1795, 1023 )
+wait_time = 4
+dest_y = -1
+dest_x = -1
+
+[node name="Spawner3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1792, 103 )
+wait_time = 2
+dest_x = -1
+
+[node name="Spawner4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 114, 85 )
+wait_time = 3
+
+[connection signal="spawn_enemy" from="Spawner" to="." method="_on_Spawner_spawn_enemy"]
+[connection signal="spawn_enemy" from="Spawner2" to="." method="_on_Spawner_spawn_enemy"]
+[connection signal="spawn_enemy" from="Spawner3" to="." method="_on_Spawner_spawn_enemy"]
+[connection signal="spawn_enemy" from="Spawner4" to="." method="_on_Spawner_spawn_enemy"]
