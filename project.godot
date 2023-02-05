@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 MusicPlayer="*res://Scenes/Singletons/MusicPlayer.tscn"
 SnackbarController="*res://Scenes/Singletons/SnackbarController.tscn"
 SceneSwitcher="*res://Scenes/Singletons/SceneSwitcher.gd"
+Consts="*res://Scripts/Consts.gd"
 
 [display]
 
@@ -43,6 +44,8 @@ common/drop_mouse_on_gui_input_disabled=true
 2d_physics/layer_3="Enemy_Hurt"
 2d_physics/layer_4="Enemy_attack"
 2d_physics/layer_5="Plant_Zone"
+2d_physics/layer_6="Dropable_Injert"
+2d_physics/layer_7="Base"
 
 [physics]
 

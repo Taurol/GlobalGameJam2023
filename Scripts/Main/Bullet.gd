@@ -1,7 +1,7 @@
 extends Area2D
 
 var move_direction: Vector2 = Vector2.UP
-var speed: int = 1.0
+var speed: int = 100
 var damage: int = 5
 
 

@@ -3,7 +3,7 @@ extends Node2D
 var move_direction = Vector2.UP
 var move_speed = 100
 var velocity = Vector2()
-var life = 100
+var life = 1000
 var damage = 10
 
 var can_move:bool = true

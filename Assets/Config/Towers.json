@@ -1,0 +1,37 @@
+{"Remolacha": 
+		{"hp":100,
+		 "dmg":50,
+		 "reload":1.0},
+	"Zanahoria":
+		{"hp":50,
+		 "dmg":50,
+		 "reload":1.0},
+	"Nabo":
+		{"hp":50,
+		 "dmg":100,
+		 "reload":1.0},
+	"RemNabo":
+		{"hp":125,
+		 "dmg":125,
+		 "reload":1.0},
+	"RemZan":
+		{"hp":125,
+		 "dmg":50,
+		 "reload":1.0},
+	"NabZan":
+		{"hp":50,
+		 "dmg":125,
+		 "reload":1.0},
+	"RemRem":
+		{"hp":150,
+		 "dmg":50,
+		 "reload":1.0},
+	"NaboNabo":
+		{"hp":50,
+		 "dmg":150,
+		 "reload":1.0},
+	"ZanZan":
+		{"hp":50,
+		 "dmg":50,
+		 "reload":1.0}
+}

@@ -3,7 +3,7 @@ extends Sprite
 var enemy_scene: PackedScene = preload("res://Scenes/Enemies/enemy.tscn")
 var last_enemy
 export (int) var enemy_damage = 10
-export (int) var wait_time = 5 # en segundos
+export (int) var wait_time = 20 # en segundos
 export (int) var dest_y = 1 # en segundos
 export (int) var dest_x = 1 # en segundos
 #export (Scene) var target_dst
@@ -11,8 +11,8 @@ export (int) var dest_x = 1 # en segundos
 signal enemy_spawned
 
 func _ready():
-	$Timer.wait_time = wait_time
-	$Timer.start()
+	#$Timer.wait_time = wait_time
+	#$Timer.start()
 	pass # Replace with function body.
 
 func spawn(enemy_pos, destination, enemy_damage) -> void:
