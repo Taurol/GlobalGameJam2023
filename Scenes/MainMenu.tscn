@@ -66,7 +66,6 @@ margin_bottom = 252.0
 rect_min_size = Vector2( 0, 30 )
 
 [node name="ExitGame" type="TextureButton" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
-self_modulate = Color( 0, 1, 0.180392, 1 )
 margin_top = 256.0
 margin_right = 470.0
 margin_bottom = 336.0

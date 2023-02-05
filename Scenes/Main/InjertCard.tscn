@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Fonts/Inter/Inter-Black.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
+size = 48
 use_filter = true
 font_data = ExtResource( 4 )
 

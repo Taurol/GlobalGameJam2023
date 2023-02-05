@@ -11,8 +11,8 @@ func _ready():
 	volume_db = volume_value
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	stream = load(menu_music)
-	yield(get_tree().create_timer(0.5),"timeout")
-	play()
+	#yield(get_tree().create_timer(0.5),"timeout")
+	#play()
 
 
 func play_menu_music():

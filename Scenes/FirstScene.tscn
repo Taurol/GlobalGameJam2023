@@ -13,6 +13,7 @@ script = ExtResource( 3 )
 left_spawner_path = NodePath("Spawners/Left")
 right_spawner_path = NodePath("Spawners/Right")
 mid_spawner_path = NodePath("Spawners/Mid")
+start_timer_duration = 15.0
 new_wave_wait_time = 60.0
 
 [node name="UI" type="Control" parent="."]
@@ -250,6 +251,8 @@ dest_y = 640
 dest_x = 960
 
 [node name="Mid" parent="Spawners" instance=ExtResource( 4 )]
-position = Vector2( 960, -32 )
+position = Vector2( 960, -128 )
 dest_y = 640
 dest_x = 960
+
+[connection signal="lose_game" from="Dr Mandioca" to="." method="_on_Dr_Mandioca_lose_game"]

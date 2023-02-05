@@ -19,7 +19,7 @@ func _process(delta):
 	if loaded:
 		return
 	
-	$Label.text = "Recargando\n" + str($ReloadTimer.time_left)
+	$Label.text = str(int($ReloadTimer.time_left)) + " s."
 	
 
 func _on_InjertCard_button_up():

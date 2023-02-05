@@ -1,10 +1,10 @@
 extends Node2D
 
 var move_direction = Vector2.UP
-var move_speed = 100
+var move_speed = 80
 var velocity = Vector2()
-var life = 1500
-var damage = 10
+var life = 3000
+var damage = 15
 
 var can_move:bool = true
 
@@ -12,7 +12,6 @@ var attack_time: float = 2.0
 var attack_ready: bool = true
 var tower_in_attack_area = false
 var towers_in_range: int = 0
-
 
 signal attack(dmg)
 
@@ -23,7 +22,7 @@ func start(_position=position, _destiny = Vector2.UP) -> void:
 	position = _position
 	var _direction = _destiny - _position
 	move_direction = _direction.normalized()
-
+	
 func _process(delta):
 	if can_move:
 		position += move_direction*move_speed*delta

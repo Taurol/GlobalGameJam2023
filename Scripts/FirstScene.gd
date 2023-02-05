@@ -95,7 +95,7 @@ func normal_spawn() -> void:
 	
 
 func boss_spawn() -> void:
-	SnackbarController.add_snackbar("Viene el Mandiongus")
+	SnackbarController.add_snackbar("Llego el Mandiongus")
 
 func _on_start_timer_timeout() -> void:
 	start_timer.stop()
@@ -137,14 +137,12 @@ func spawn_enemy() -> void:
 func elite_spawn() -> void:
 	var side_picker = rng.randf()
 	
-	mid_spawner.spawn("Elite")
-	return
-	
-	if side_picker< 0.33:
+	if side_picker< 0.5:
 		left_spawner.spawn("Elite")
 		return
 	
-	if side_picker > 0.66:
-		right_spawner.spawn("Elite")
-		return 
-	
+	right_spawner.spawn("Elite")
+	return 
+
+func _on_Dr_Mandioca_lose_game():
+	SnackbarController.add_snackbar("Perdi Mister")
