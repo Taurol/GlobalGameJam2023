@@ -13,7 +13,7 @@ var tower_in_attack_area = false
 var towers_in_range: int = 0
 
 signal attack(dmg)
-
+signal die()
 func _ready():
 	$AttackTimer.wait_time = attack_time
 
@@ -39,6 +39,7 @@ func _on_HurtBox_area_entered(bullet) -> void:
 	
 	life -= bullet._get_damage()
 	if life <= 0:
+		emit_signal("die")
 		queue_free()
 
 func _on_AttackBox_area_entered(tower):

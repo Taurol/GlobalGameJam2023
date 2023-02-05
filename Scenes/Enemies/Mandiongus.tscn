@@ -86,7 +86,7 @@ shape = SubResource( 2 )
 anims/Attack = SubResource( 3 )
 anims/RESET = SubResource( 5 )
 
-[node name="AttackSprite" type="Sprite" parent="."]
+[node name="AttackSprite" type="Sprite" parent="." groups=["Enemy"]]
 position = Vector2( 0, 125 )
 rotation = 1.5708
 scale = Vector2( 3, 4 )

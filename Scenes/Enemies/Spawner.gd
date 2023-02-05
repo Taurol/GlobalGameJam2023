@@ -3,6 +3,7 @@ extends Sprite
 var enemy_scene: PackedScene = preload("res://Scenes/Enemies/enemy.tscn")
 var elite_scene: PackedScene = preload("res://Scenes/Enemies/Elite.tscn")
 var mandiongus_scene: PackedScene = preload("res://Scenes/Enemies/Mandiongus.tscn")
+
 var last_enemy
 export (int) var enemy_damage = 10
 export (int) var wait_time = 20 # en segundos
@@ -30,6 +31,7 @@ func spawn(enemy_type) -> void:
 func spawn_normal() -> void:
 	var enemy = enemy_scene.instance()
 	enemy.start(global_position, Vector2(dest_x, dest_y))
+	get_tree().root
 	get_tree().root.add_child(enemy)
 
 func spawn_elite() -> void:
@@ -41,6 +43,7 @@ func spawn_boss() -> void:
 	var enemy = mandiongus_scene.instance()
 	enemy.start(global_position, Vector2(dest_x, dest_y))
 	get_tree().root.add_child(enemy)
+	enemy.connect("die", get_tree().root.get_node("FirstScene"), "_on_mandiogus_die")
 
 func _on_Timer_timeout():
 	emit_signal("enemy_spawned", last_enemy)

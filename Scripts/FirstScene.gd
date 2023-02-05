@@ -1,5 +1,8 @@
 extends Node2D
 
+var win_scene: PackedScene = preload("res://Scenes/Main/WinScreen.tscn")
+var lose_scene: PackedScene = preload("res://Scenes/Main/LoseScreen.tscn")
+
 export var left_spawner_path: NodePath
 onready var left_spawner := get_node(left_spawner_path)
 export var right_spawner_path: NodePath
@@ -7,12 +10,7 @@ onready var right_spawner := get_node(right_spawner_path)
 export var mid_spawner_path: NodePath
 onready var mid_spawner := get_node(mid_spawner_path)
 
-var basic_enemy_scene: PackedScene = preload("res://Scenes/Enemies/enemy.tscn")
-var elite_enemy_scene: PackedScene
-var mandiongus: PackedScene
-
-var normal_waves_amount: int = 3
-var enemies_per_wave: int = 20 #UNNUSED
+export var normal_waves_amount: int = 1
 var enemies_per_elite: int = 20
 var normal_waves_counter: int = 0
 var normal_enemies_counter: int = 0
@@ -35,6 +33,9 @@ var boss_spawned: bool = false
 
 var rng = RandomNumberGenerator.new()
 
+var game_over: bool = false
+
+var last_wave: bool = false
 func _ready():
 	MusicPlayer.play_gameplay_music()
 	rng.randomize()
@@ -65,12 +66,12 @@ func _ready():
 
 
 func spawn_controller() -> void:
-	if normal_waves_counter > normal_waves_amount:
-		SnackbarController.add_snackbar("Elimina la ultima oleada!!")
-	
 	if normal_waves_amount == normal_waves_counter && not boss_spawned:
 		boss_spawn()
 		boss_spawned = true
+		enemy_spawn_timer.stop()
+		last_wave = true
+		
 	
 	if is_in_wave:
 		wave_spawn()
@@ -79,14 +80,38 @@ func spawn_controller() -> void:
 	normal_spawn()
 
 func you_win() -> void:
-	pass
+	new_wave_timer.stop()
+	wave_timer.stop()
+	enemy_spawn_timer.stop()
+	
+	var child_nodes = get_tree().root.get_children()
+	
+	for child in child_nodes:
+		if child.is_in_group("Enemy"):
+			child.queue_free()
+	#TODO THINGS
+	var win_node = win_scene.instance()
+	$CanvasLayer.add_child(win_node)
 
 func you_lose() -> void:
-	pass
+	
+	if game_over:
+		return
+	var child_nodes = get_tree().root.get_children()
+	
+	for child in child_nodes:
+		if child.is_in_group("Enemy"):
+			child.queue_free()
+	
+	new_wave_timer.stop()
+	wave_timer.stop()
+	enemy_spawn_timer.stop()
+	
+	var lose_node = lose_scene.instance()
+	$CanvasLayer.add_child(lose_node)
 
 func wave_spawn() -> void:
 	spawn_enemy()
-	
 
 func normal_spawn() -> void:
 	var spawn_chance = rng.randf()
@@ -96,6 +121,8 @@ func normal_spawn() -> void:
 
 func boss_spawn() -> void:
 	SnackbarController.add_snackbar("Llego el Mandiongus")
+	mid_spawner.spawn("Mandiogus")
+	
 
 func _on_start_timer_timeout() -> void:
 	start_timer.stop()
@@ -105,6 +132,9 @@ func _on_start_timer_timeout() -> void:
 	SnackbarController.add_snackbar("Atacan las mandiocas")
 
 func _on_wave_timer_timeout() -> void:
+	if last_wave:
+		return
+	
 	is_in_wave = false
 	new_wave_timer.start()
 	normal_waves_counter += 1
@@ -145,4 +175,8 @@ func elite_spawn() -> void:
 	return 
 
 func _on_Dr_Mandioca_lose_game():
-	SnackbarController.add_snackbar("Perdi Mister")
+	you_lose()
+	game_over = true
+
+func _on_mandiogus_die():
+	you_win()

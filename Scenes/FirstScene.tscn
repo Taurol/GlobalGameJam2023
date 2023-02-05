@@ -13,8 +13,10 @@ script = ExtResource( 3 )
 left_spawner_path = NodePath("Spawners/Left")
 right_spawner_path = NodePath("Spawners/Right")
 mid_spawner_path = NodePath("Spawners/Mid")
+normal_waves_amount = 3
 start_timer_duration = 15.0
 new_wave_wait_time = 60.0
+normal_spawn_probability = 0.4
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
@@ -254,5 +256,7 @@ dest_x = 960
 position = Vector2( 960, -128 )
 dest_y = 640
 dest_x = 960
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="lose_game" from="Dr Mandioca" to="." method="_on_Dr_Mandioca_lose_game"]

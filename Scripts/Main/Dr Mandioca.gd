@@ -7,4 +7,5 @@ func _ready():
 	pass # Replace with function body.
 
 func recieve_damage(damage) -> void:
+	print("Recibi daño")
 	emit_signal("lose_game")
