@@ -1,8 +1,8 @@
 extends AudioStreamPlayer
 
 
-export(String) var menu_music = "res://Assets/Songs/Pleasant Porridge.mp3"
-export(String) var gameplay_music = "res://Assets/Songs/Starting Out Waltz Vivace.mp3"
+export(String) var menu_music = "res://Assets/Sounds/menu_music.wav"
+export(String) var gameplay_music = "res://Assets/Sounds/gameplay_loop.wav"
 
 var volume_value = -0.0
 var now_playing: String = "Menu"

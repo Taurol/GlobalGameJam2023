@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gameplay_loop_2_other_instruments.mp3-6b6420c30cd7c148c06a2da8c8c05282.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/gameplay_loop_2_other_instruments.mp3"
+dest_files=[ "res://.import/gameplay_loop_2_other_instruments.mp3-6b6420c30cd7c148c06a2da8c8c05282.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

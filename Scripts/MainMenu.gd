@@ -4,15 +4,10 @@ var options = preload("res://Scenes/InGameOptions.tscn")
 
 func _ready():
 	$ExitGame.visible = false
-	
 	MusicPlayer.play_menu_music()
 
 func _on_NewGame_pressed():
-	#SceneSwitcher.change_scene("res://Scenes/FirstScene.tscn",{})
-	SnackbarController.add_snackbar("Hola como estan")
-
-func _on_Continue_pressed():
-	SceneSwitcher.change_scene("res://Scenes/FirstScene.tscn", {})
+	SceneSwitcher.change_scene("res://Scenes/FirstScene.tscn",{})
 
 func _on_ExitGame_pressed():
 	$ExitGame.show_menu()
