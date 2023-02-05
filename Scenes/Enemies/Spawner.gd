@@ -11,8 +11,8 @@ export (int) var dest_x = 1 # en segundos
 signal enemy_spawned
 
 func _ready():
-	#$Timer.wait_time = wait_time
-	#$Timer.start()
+	$Timer.wait_time = wait_time
+	$Timer.start()
 	pass # Replace with function body.
 
 func spawn(enemy_pos, destination, enemy_damage) -> void:

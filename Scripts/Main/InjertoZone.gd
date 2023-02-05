@@ -62,7 +62,7 @@ func _on_InjertoZone_area_exited(area):
 	$Sprite.self_modulate = Color.white
 
 
-func add_injerto(injerto_type: String) -> void:
+func add_injerto(injert_type: String) -> void:
 	if has_child:
 		return
 	
@@ -73,7 +73,7 @@ func add_injerto(injerto_type: String) -> void:
 	
 	injerto.shooting_direction = shooting_direction
 	injerto.connect("died", self, "injerto_died")
-	injerto.injerto_type = injerto_type
+	injerto.injert_type = injert_type
 	injerto.initialize()
 	add_child(injerto)
 	has_child = true

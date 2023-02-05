@@ -10,7 +10,7 @@ var shooting_direction: Vector2 = Vector2.UP
 
 var enemy = null
 var life: int = 100
-export(String, "Remolacha", "Zanahoria", "Nabo", "RemRem", "ZanZan", "NaboNabo", "RemNabo", "RemZan", "NaboZan" ) var injerto_type = "Remolacha" 
+var injert_type
 
 var type_data: Dictionary
 
@@ -18,10 +18,12 @@ signal died()
 
 func initialize():
 	read_properties()
-	life = type_data[injerto_type].hp
-	shooting_reload_time = type_data[injerto_type].reload
-	bullet_dmg = type_data[injerto_type].dmg
-	print(injerto_type)
+	life = type_data[injert_type].hp
+	shooting_reload_time = type_data[injert_type].reload
+	bullet_dmg = type_data[injert_type].dmg
+	
+	$Sprite.texture = Consts.get_injert_texture(injert_type)
+	print(injert_type)
 
 func _process(delta):
 	$ReloadTimer.wait_time = shooting_reload_time
